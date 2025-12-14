@@ -1,16 +1,22 @@
 meta:
   environment: node
-  toolchain: npm
-  version: 18
+  toolchain:
+    name: npm
+  version: "18"
 
 build:
-  commands:
+  skip: false
+  additionalCommands:
     - npm ci
     - npm run build
 
-run:
-  containerPort: 3000
-  command: npx serve -s dist -l 3000
-
 artifacts:
-  - dist/
+  "*": /
+
+run:
+  scriptName: null
+  scriptArguments: null
+  nodeArguments: null
+  command: npx serve -s dist -l 80
+  persistenceMount: /data
+  containerPort: "80"
