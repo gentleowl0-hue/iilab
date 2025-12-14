@@ -4,17 +4,20 @@ FROM node:18-alpine
 # Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Копируем package.json и package-lock.json
-COPY package*.json ./
+# Копируем package.json
+COPY package.json ./
 
-# Устанавливаем зависимости
-RUN npm ci --only=production
+# Устанавливаем все зависимости (включая dev для сборки)
+RUN npm install
 
 # Копируем исходный код
 COPY . .
 
 # Собираем приложение
 RUN npm run build
+
+# Удаляем dev-зависимости после сборки
+RUN npm prune --production
 
 # Устанавливаем serve глобально
 RUN npm install -g serve
