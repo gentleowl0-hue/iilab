@@ -1,3 +1,4 @@
+version: null
 meta:
   environment: node
   toolchain:
@@ -7,14 +8,11 @@ build:
   skip: false
   additionalCommands:
     - npm run build
-
-artifacts:
-  "*": /
-
 run:
-  scriptName: index.js
+  scriptName: ""
   scriptArguments: null
   nodeArguments: null
   command: npm run start
   persistenceMount: /data
   containerPort: "80"
+serviceType: compute
