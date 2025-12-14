@@ -5,9 +5,12 @@ meta:
     version: "18"
 build:
   skip: false
-  additionalCommands: null
-  artifacts:
-    "*": /
+  additionalCommands:
+    - npm run build
+
+artifacts:
+  "*": /
+
 run:
   scriptName: index.js
   scriptArguments: null
