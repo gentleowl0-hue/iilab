@@ -1,18 +1,8 @@
-version: null
 meta:
-  environment: node
-  toolchain:
-    name: npm
-    version: "18"
+  environment: docker
+
 build:
   skip: false
-  additionalCommands:
-    - npm run build
+
 run:
-  scriptName: ""
-  scriptArguments: null
-  nodeArguments: null
-  command: npm run start
-  persistenceMount: /data
   containerPort: "80"
-serviceType: compute
