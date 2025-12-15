@@ -1,8 +1,10 @@
 import React from 'react';
 import Section from './ui/Section';
 import { Phone, ArrowRight, Play } from 'lucide-react';
+import { useModal } from '../App';
 
 const Hero: React.FC = () => {
+  const { openModal } = useModal();
   return (
     <Section className="pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden">
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -20,11 +22,11 @@ const Hero: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="bg-slate-900 text-white px-8 py-4 rounded-xl text-base font-semibold hover:bg-slate-800 transition-all flex items-center justify-center gap-2 shadow-xl shadow-slate-900/10">
+            <button onClick={openModal} className="bg-slate-900 text-white px-8 py-4 rounded-xl text-base font-semibold hover:bg-slate-800 transition-all flex items-center justify-center gap-2 shadow-xl shadow-slate-900/10">
               Создать робота за 5 минут
               <ArrowRight size={18} />
             </button>
-            <button className="bg-white border border-slate-200 text-slate-700 px-8 py-4 rounded-xl text-base font-semibold hover:bg-slate-50 transition-all flex items-center justify-center gap-2">
+            <button onClick={openModal} className="bg-white border border-slate-200 text-slate-700 px-8 py-4 rounded-xl text-base font-semibold hover:bg-slate-50 transition-all flex items-center justify-center gap-2">
               <Play size={18} className="fill-slate-700" />
               Послушать демо
             </button>

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useModal } from '../App';
 
 const Header: React.FC = () => {
+  const { openModal } = useModal();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -29,10 +31,10 @@ const Header: React.FC = () => {
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
-          <button className="text-sm font-medium text-slate-900 hover:text-primary-600 transition-colors">
+          <button onClick={openModal} className="text-sm font-medium text-slate-900 hover:text-primary-600 transition-colors">
             Войти
           </button>
-          <button className="bg-primary-600 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-primary-700 transition-colors shadow-lg shadow-primary-500/20">
+          <button onClick={openModal} className="bg-primary-600 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-primary-700 transition-colors shadow-lg shadow-primary-500/20">
             Попробовать бесплатно
           </button>
         </div>
@@ -50,7 +52,7 @@ const Header: React.FC = () => {
           <a href="#results" className="text-base font-medium text-slate-600" onClick={() => setIsMobileMenuOpen(false)}>Кейсы</a>
           <a href="#pricing" className="text-base font-medium text-slate-600" onClick={() => setIsMobileMenuOpen(false)}>Тарифы</a>
           <div className="h-px bg-slate-100 my-2"></div>
-          <button className="bg-primary-600 text-white px-5 py-3 rounded-lg text-base font-medium w-full">
+          <button onClick={() => { openModal(); setIsMobileMenuOpen(false); }} className="bg-primary-600 text-white px-5 py-3 rounded-lg text-base font-medium w-full">
             Попробовать бесплатно
           </button>
         </div>

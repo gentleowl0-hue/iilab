@@ -1,6 +1,8 @@
 import React from 'react';
+import { useModal } from '../App';
 
 const Footer: React.FC = () => {
+  const { openModal } = useModal();
   return (
     <footer className="bg-slate-900 text-white py-12 md:py-20 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,10 +21,10 @@ const Footer: React.FC = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button className="w-full sm:w-auto bg-white text-black px-8 py-4 rounded-lg text-base font-bold hover:bg-slate-200 transition-colors shadow-lg">
+              <button onClick={openModal} className="w-full sm:w-auto bg-white text-black px-8 py-4 rounded-lg text-base font-bold hover:bg-slate-200 transition-colors shadow-lg">
                 Создать колл-центр за 5 минут
               </button>
-              <button className="w-full sm:w-auto bg-transparent border border-slate-600 text-white px-8 py-4 rounded-lg text-base font-bold hover:bg-white/10 hover:border-white transition-all">
+              <button onClick={openModal} className="w-full sm:w-auto bg-transparent border border-slate-600 text-white px-8 py-4 rounded-lg text-base font-bold hover:bg-white/10 hover:border-white transition-all">
                 Позвонить нейросети
               </button>
             </div>
